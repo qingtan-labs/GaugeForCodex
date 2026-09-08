@@ -1,0 +1,32 @@
+# Privacy
+
+Gauge for Codex is designed to keep its own data handling minimal.
+
+## Data the app reads
+
+The app locates a Codex executable already installed on the Mac and requests the account rate-limit summary through the local `app-server` stdio interface. The response is normalized to usage percentages, reset timestamps, and window durations.
+
+## Data the app stores
+
+The following values are stored in the app's macOS UserDefaults domain:
+
+- normalized usage-window percentages;
+- reset timestamps and window durations;
+- the last successful refresh time;
+- the selected menu-bar display mode.
+
+## Data the app does not collect
+
+Gauge for Codex does not read prompts, conversation content, browser cookies, passwords, or API keys. It has no analytics SDK, advertising SDK, telemetry endpoint, crash-reporting service, or developer-operated backend.
+
+## Network behavior
+
+Gauge for Codex does not make its own HTTP requests. The locally installed Codex component may communicate with OpenAI using the account already configured on the Mac in order to return current usage data. That communication is governed by the user's OpenAI agreement and settings.
+
+## Manual values and removal
+
+Values entered through the manual fallback stay in the same local UserDefaults domain. Uninstalling the application does not automatically erase preferences; they can be removed separately with:
+
+```bash
+defaults delete com.qingtanlabs.gaugeforcodex
+```

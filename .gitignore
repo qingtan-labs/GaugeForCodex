@@ -1,0 +1,15 @@
+.DS_Store
+*.xcuserstate
+
+# Local build products
+**/build/
+release/
+
+# Local design explorations (some contain third-party reference artwork)
+design-variants/
+
+# Unrelated local pet experiments and archived binaries
+dist/
+legacy-backups/
+pet-run/
+tools/

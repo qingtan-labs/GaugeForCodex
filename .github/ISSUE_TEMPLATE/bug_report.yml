@@ -1,0 +1,34 @@
+name: Bug report
+description: Report a reproducible problem in Gauge for Codex
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Please remove account details, credentials, prompts, and conversation content before submitting.
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac architecture
+      placeholder: macOS 15.6, Apple silicon
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Gauge for Codex and Codex versions
+      placeholder: Gauge for Codex 1.0.0; Codex version…
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
