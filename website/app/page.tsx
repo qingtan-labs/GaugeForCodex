@@ -1,18 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import {
-  ArrowRight,
-  Check,
-  Clock3,
-  Download,
-  GitFork,
-  Languages,
-  RefreshCw,
-  ShieldCheck,
-  Sparkles,
-  TerminalSquare,
-} from 'lucide-react';
+import type { SVGProps } from 'react';
 
 import { Button } from '@/components/ui/button';
 
@@ -168,6 +157,64 @@ const copy = {
 const releaseUrl = 'https://github.com/qingtan-labs/GaugeForCodex/releases/latest';
 const repositoryUrl = 'https://github.com/qingtan-labs/GaugeForCodex';
 
+type IconProps = SVGProps<SVGSVGElement>;
+
+function IconBase({ children, ...props }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      {children}
+    </svg>
+  );
+}
+
+function ArrowRightIcon(props: IconProps) {
+  return <IconBase {...props}><path d="M5 12h14M14 7l5 5-5 5" /></IconBase>;
+}
+
+function CheckIcon(props: IconProps) {
+  return <IconBase {...props}><path d="m5 12 4 4L19 6" /></IconBase>;
+}
+
+function ClockIcon(props: IconProps) {
+  return <IconBase {...props}><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></IconBase>;
+}
+
+function DownloadIcon(props: IconProps) {
+  return <IconBase {...props}><path d="M12 3v11m-4-4 4 4 4-4M5 19h14" /></IconBase>;
+}
+
+function GitForkIcon(props: IconProps) {
+  return <IconBase {...props}><circle cx="7" cy="5" r="2" /><circle cx="17" cy="5" r="2" /><circle cx="12" cy="19" r="2" /><path d="M7 7v2.5c0 1.4 1.1 2.5 2.5 2.5H12m5-5v2.5c0 1.4-1.1 2.5-2.5 2.5H12v5" /></IconBase>;
+}
+
+function LanguagesIcon(props: IconProps) {
+  return <IconBase {...props}><path d="M4 5h9M8.5 3v2m-3 4c1.5 2.3 3.8 4.1 6.5 5m0-7c-1 3.3-3.3 6.2-6.5 8M14 20l3.5-9 3.5 9m-5.7-3h4.4" /></IconBase>;
+}
+
+function RefreshIcon(props: IconProps) {
+  return <IconBase {...props}><path d="M20 7v5h-5M4 17v-5h5" /><path d="M6.1 8.1A7.5 7.5 0 0 1 19.2 10M4.8 14a7.5 7.5 0 0 0 13.1 1.9" /></IconBase>;
+}
+
+function ShieldIcon(props: IconProps) {
+  return <IconBase {...props}><path d="M12 3 5 6v5c0 4.6 2.8 8 7 10 4.2-2 7-5.4 7-10V6l-7-3Z" /><path d="m8.8 12 2.1 2.1 4.4-4.4" /></IconBase>;
+}
+
+function SparklesIcon(props: IconProps) {
+  return <IconBase {...props}><path d="m12 3 1.2 3.3L16.5 7.5l-3.3 1.2L12 12l-1.2-3.3-3.3-1.2 3.3-1.2L12 3ZM6 14l.8 2.2L9 17l-2.2.8L6 20l-.8-2.2L3 17l2.2-.8L6 14Zm11-2 .7 1.8 1.8.7-1.8.7L17 17l-.7-1.8-1.8-.7 1.8-.7L17 12Z" /></IconBase>;
+}
+
+function TerminalIcon(props: IconProps) {
+  return <IconBase {...props}><rect x="3" y="4" width="18" height="16" rx="3" /><path d="m7 9 3 3-3 3m6 0h4" /></IconBase>;
+}
+
 function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
@@ -217,7 +264,7 @@ export default function Home() {
         </nav>
         <div className="nav-actions">
           <a className="source-link" href={repositoryUrl} target="_blank" rel="noreferrer">
-            <GitFork aria-hidden="true" />
+            <GitForkIcon aria-hidden="true" />
             <span>{t.openSource}</span>
           </a>
           <Button
@@ -228,7 +275,7 @@ export default function Home() {
             onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}
             aria-label={language === 'en' ? '切换为简体中文' : 'Switch to English'}
           >
-            <Languages aria-hidden="true" />
+            <LanguagesIcon aria-hidden="true" />
             {language === 'en' ? '中文' : 'EN'}
           </Button>
         </div>
@@ -237,7 +284,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-copy">
           <div className="eyebrow">
-            <Sparkles aria-hidden="true" />
+            <SparklesIcon aria-hidden="true" />
             {t.eyebrow}
           </div>
           <h1>
@@ -247,19 +294,19 @@ export default function Home() {
           <p className="hero-intro">{t.intro}</p>
           <div className="hero-actions">
             <a className="primary-cta" href={releaseUrl} target="_blank" rel="noreferrer">
-              <Download aria-hidden="true" />
+              <DownloadIcon aria-hidden="true" />
               {t.download}
-              <ArrowRight className="cta-arrow" aria-hidden="true" />
+              <ArrowRightIcon className="cta-arrow" aria-hidden="true" />
             </a>
             <a className="secondary-cta" href={repositoryUrl} target="_blank" rel="noreferrer">
-              <GitFork aria-hidden="true" />
+              <GitForkIcon aria-hidden="true" />
               {t.source}
             </a>
           </div>
           <ul className="trust-row" aria-label="Product compatibility">
             {t.trust.map((item) => (
               <li key={item}>
-                <Check aria-hidden="true" /> {item}
+                <CheckIcon aria-hidden="true" /> {item}
               </li>
             ))}
           </ul>
@@ -296,14 +343,14 @@ export default function Home() {
                   <QuotaRing value={56} label="5 hr" />
                   <QuotaRing value={89} label="7 day" />
                   <div className="reset-copy">
-                    <Clock3 aria-hidden="true" />
+                    <ClockIcon aria-hidden="true" />
                     <strong>{t.resets}</strong>
                     <span>{t.resetDate}</span>
                   </div>
                 </div>
                 <div className="sync-row">
                   <span><i /> {t.updated}</span>
-                  <RefreshCw aria-hidden="true" />
+                  <RefreshIcon aria-hidden="true" />
                 </div>
                 <div className="menu-options">
                   <span>{t.refresh}</span>
@@ -319,7 +366,7 @@ export default function Home() {
             <strong>56%</strong>
           </div>
           <div className="floating-note note-bottom">
-            <ShieldCheck aria-hidden="true" />
+            <ShieldIcon aria-hidden="true" />
             <span>{language === 'en' ? 'Local only' : '仅限本机'}</span>
           </div>
         </div>
@@ -345,7 +392,7 @@ export default function Home() {
         </div>
         <div className="feature-grid">
           {t.cards.map((card, index) => {
-            const Icon = [TerminalSquare, Clock3, RefreshCw][index];
+            const Icon = [TerminalIcon, ClockIcon, RefreshIcon][index];
             return (
               <article className="feature-card" key={card.title}>
                 <div className="feature-icon"><Icon aria-hidden="true" /></div>
@@ -355,7 +402,7 @@ export default function Home() {
                 <div className={`feature-visual visual-${index + 1}`} aria-hidden="true">
                   {index === 0 && <><i /><i /><i /><b>56%</b></>}
                   {index === 1 && <><strong>4d 2h</strong><span>{t.resetDate}</span></>}
-                  {index === 2 && <><span /><span /><span /><b><Check /></b></>}
+                  {index === 2 && <><span /><span /><span /><b><CheckIcon /></b></>}
                 </div>
               </article>
             );
@@ -369,8 +416,8 @@ export default function Home() {
           <h2>{t.previewTitle}</h2>
           <p>{t.previewBody}</p>
           <div className="preview-points">
-            <span><Check /> {language === 'en' ? 'Percentage always visible' : '百分比始终可见'}</span>
-            <span><Check /> {language === 'en' ? 'Every usage window included' : '展示全部额度周期'}</span>
+            <span><CheckIcon /> {language === 'en' ? 'Percentage always visible' : '百分比始终可见'}</span>
+            <span><CheckIcon /> {language === 'en' ? 'Every usage window included' : '展示全部额度周期'}</span>
           </div>
         </div>
         <figure className="screenshot-frame">
@@ -386,18 +433,18 @@ export default function Home() {
           <p>{t.privacyBody}</p>
           <ul>
             {t.privacyPoints.map((point) => (
-              <li key={point}><Check aria-hidden="true" /> {point}</li>
+              <li key={point}><CheckIcon aria-hidden="true" /> {point}</li>
             ))}
           </ul>
         </div>
         <div className="privacy-flow" aria-label="Local data flow">
           <div className="flow-node primary-node">
-            <ShieldCheck aria-hidden="true" />
+            <ShieldIcon aria-hidden="true" />
             <strong>{t.flowLocal}</strong>
           </div>
           <span className="flow-line"><i /></span>
           <div className="flow-node">
-            <TerminalSquare aria-hidden="true" />
+            <TerminalIcon aria-hidden="true" />
             <strong>{t.flowCodex}</strong>
             <span>{t.flowRead}</span>
           </div>
@@ -415,9 +462,9 @@ export default function Home() {
           <h2>{t.installTitle}</h2>
           <p>{t.installBody}</p>
           <a className="primary-cta" href={releaseUrl} target="_blank" rel="noreferrer">
-            <Download aria-hidden="true" />
+            <DownloadIcon aria-hidden="true" />
             {t.release}
-            <ArrowRight className="cta-arrow" aria-hidden="true" />
+            <ArrowRightIcon className="cta-arrow" aria-hidden="true" />
           </a>
           <small>{t.requirement}</small>
         </div>
@@ -427,7 +474,7 @@ export default function Home() {
             <b>{t.copyHint}</b>
           </div>
           <pre><code><span>$</span> git clone https://github.com/qingtan-labs/GaugeForCodex.git{`\n`}<span>$</span> cd GaugeForCodex/quota-overlay{`\n`}<span>$</span> ./install.sh</code></pre>
-          <div className="terminal-success"><Check /> Gauge for Codex · ready in your menu bar</div>
+          <div className="terminal-success"><CheckIcon /> Gauge for Codex · ready in your menu bar</div>
         </div>
       </section>
 
