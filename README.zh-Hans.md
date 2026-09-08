@@ -10,6 +10,8 @@
 
 原生 macOS · 本地优先 · 轻量 · 开源 · English / 简体中文 / 日本語 / Español
 
+**产品官网：** [gauge-for-codex.r9rgtcrw5g.chatgpt.site](https://gauge-for-codex.r9rgtcrw5g.chatgpt.site) · **下载：** [最新版本](https://github.com/qingtan-labs/GaugeForCodex/releases/latest)
+
 ## 界面预览
 
 ![Gauge for Codex 菜单栏预览](assets/screenshots/menu-overview.png)

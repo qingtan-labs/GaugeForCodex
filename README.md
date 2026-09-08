@@ -10,6 +10,8 @@ See Codex usage, reset time, and remaining quota at a glance from the macOS menu
 
 Native macOS · Local-first · Lightweight · Open source · English / 简体中文 / 日本語 / Español
 
+**Website:** [gauge-for-codex.r9rgtcrw5g.chatgpt.site](https://gauge-for-codex.r9rgtcrw5g.chatgpt.site) · **Download:** [Latest release](https://github.com/qingtan-labs/GaugeForCodex/releases/latest)
+
 ## Preview
 
 ![Gauge for Codex menu-bar overview](assets/screenshots/menu-overview.png)
