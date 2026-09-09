@@ -45,6 +45,9 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /GaugeForCodex
 
+      - name: Normalize GitHub Pages assets
+        run: cp -R dist/client/GaugeForCodex/_next dist/client/_next
+
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
