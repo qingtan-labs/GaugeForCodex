@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { SVGProps } from 'react';
+import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
 
@@ -219,12 +220,7 @@ function TerminalIcon(props: IconProps) {
 function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
-      <span className="brand-c">C</span>
-      <span className="brand-bars">
-        <i />
-        <i />
-        <i />
-      </span>
+      <Image src={`${basePath}/brand-icon.png`} alt="" width="160" height="160" unoptimized />
     </span>
   );
 }
@@ -341,8 +337,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="window-row">
-                  <QuotaRing value={56} label="5 hr" />
-                  <QuotaRing value={89} label="7 day" />
+                  <QuotaRing value={89} label={language === 'en' ? '5 hr' : '5 小时'} />
+                  <QuotaRing value={56} label={language === 'en' ? '7 days' : '7 天'} />
                   <div className="reset-copy">
                     <ClockIcon aria-hidden="true" />
                     <strong>{t.resets}</strong>
@@ -363,7 +359,7 @@ export default function Home() {
             </div>
           </div>
           <div className="floating-note note-top">
-            <span>5h</span>
+            <span>7d</span>
             <strong>56%</strong>
           </div>
           <div className="floating-note note-bottom">
@@ -422,7 +418,13 @@ export default function Home() {
           </div>
         </div>
         <figure className="screenshot-frame">
-          <img src={`${basePath}/menu-overview.png`} alt="Gauge for Codex menu bar and popover preview" />
+          <Image
+            src={`${basePath}/menu-overview.png`}
+            alt="Gauge for Codex menu bar and popover preview"
+            width="1400"
+            height="820"
+            unoptimized
+          />
           <figcaption>{language === 'en' ? 'Illustrative product preview' : '产品功能示意图'}</figcaption>
         </figure>
       </section>
