@@ -156,6 +156,7 @@ const copy = {
 
 const releaseUrl = 'https://github.com/qingtan-labs/GaugeForCodex/releases/latest';
 const repositoryUrl = 'https://github.com/qingtan-labs/GaugeForCodex';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
 type IconProps = SVGProps<SVGSVGElement>;
 
@@ -421,7 +422,7 @@ export default function Home() {
           </div>
         </div>
         <figure className="screenshot-frame">
-          <img src="/menu-overview.png" alt="Gauge for Codex menu bar and popover preview" />
+          <img src={`${basePath}/menu-overview.png`} alt="Gauge for Codex menu bar and popover preview" />
           <figcaption>{language === 'en' ? 'Illustrative product preview' : '产品功能示意图'}</figcaption>
         </figure>
       </section>
